@@ -1,3 +1,4 @@
+# p.135 汎用コードをつくる
 def make_n_gram(sequence, n:int)->list:
     n_gram = []
     for i in range(len(sequence)-(n-1)): #先頭からn個ずつ追加

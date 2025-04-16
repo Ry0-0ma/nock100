@@ -1,14 +1,15 @@
+# p172 身近なライブラリに親しむ
 from l3count_char import remove_stopword
 import numpy as np
 
 def extract_char(words:list)->list:
-    first = np.array([1,5,6,7,8,9,15,16,19])
+    first = np.array([1,5,6,7,8,9,15,16,19]) #先頭の1文字のみ取り出す単語番号
     extracted = []
     for i in range(len(words)):
         if i+1 in first:
             extracted.append(words[i][0])
         else:
-            extracted.append(words[i][0:2])
+            extracted.append(words[i][0:2]) #他は先頭2文字
     
     return extracted
 

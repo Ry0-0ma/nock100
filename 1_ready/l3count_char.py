@@ -1,6 +1,8 @@
+# 11章1度に一つのことを
+# p.135 10章汎用コードをつくる
 import numpy as np
 
-def count_char(words:list)->np.ndarray:
+def Count_char(words:list)->np.ndarray:
     word_count = len(words)
     counts = np.zeros(word_count)
     for i in range(word_count):
@@ -17,11 +19,8 @@ def remove_stopword(sentence:str)->str:
 if __name__ == "__main__":
     sentence = "Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics."
     sentence = remove_stopword(sentence)
-    words = sentence.split(' ')
+    words = sentence.split(' ') #空白ごとに格納
     
-    counts = count_char(words)
-
+    counts = Count_char(words)
     print(counts)
-
-
     

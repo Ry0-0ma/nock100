@@ -1,3 +1,4 @@
+# ライブラリに親しむ
 def Encrypt(sentence:str)->str:
     cipher = []
     for char in sentence:

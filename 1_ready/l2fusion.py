@@ -6,8 +6,6 @@ def fusion(sentence1: str, sentence2: str)->str: #同じ長さの単語
     
     return fused
 
-
-
 if __name__ == "__main__":
     fused = fusion("パトカー", "タクシー")
     print(''.join(fused)) #リストをstrに変換
