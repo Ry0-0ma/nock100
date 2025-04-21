@@ -18,8 +18,7 @@ def make_dictionary(words:list):
     dictionary = dict(zip(index, words))
     sorted_dictionary = sorted(dictionary.items(), key=lambda x:x[1]) #値でアルファベット順にソート
 
-    return sorted_dictionary    
-
+    return sorted_dictionary 
 
 if __name__ == "__main__":
     sentence = "Hi He Lied Because Boron Could Not Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can."

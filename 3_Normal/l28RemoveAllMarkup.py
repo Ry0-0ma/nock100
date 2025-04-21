@@ -17,6 +17,10 @@ def OverwriteMatched(Info_dictlist:list, pattern, source:str):
         journalNum += 1
 
 def RemoveAllMarkup(Info_dictlist:list):
+    RemoveEmphasis(Info_dictlist) #FIXME: '''がいくつか残っている
+    RemoveInternalLink(Info_dictlist) #FIXME [[]] がいくつか残っている
+    # この除去し残っている部分は、近くに固まっている -> その記事を参照できていない？
+
     Patterns = [
         re.compile(r'\[\[ファイル:(.*?)\|*.*?\]\]'), #ファイル名で上書き
         re.compile(r'\{\{(?:lang|Lang)\|.*?\|(.*?)\}\}'), #(lang|言語略名|内容)の内容で上書き
@@ -27,15 +31,9 @@ def RemoveAllMarkup(Info_dictlist:list):
     
     OverwriteMatched(Info_dictlist, re.compile(r'<!--.*?-->'),'') #コメントアウトを消去
 
-
 if __name__ == "__main__":
     # 記事ごとに基礎情報の辞書オブジェクトが格納されたリスト
     Info_dictlist = ReturnInfo_dictlist()
-    
-    RemoveEmphasis(Info_dictlist) #FIXME: '''がいくつか残っている
-    RemoveInternalLink(Info_dictlist) #FIXME [[]] がいくつか残っている
-    # この除去し残っている部分は、近くに固まっている -> その記事を参照できていない？
-
     RemoveAllMarkup(Info_dictlist) #FIXME: 仮リンク残っている, コメントアウトも1つ残っている
     print(Info_dictlist)
 
