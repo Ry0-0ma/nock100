@@ -1,4 +1,4 @@
-from l12save_column import save_column
+from l14save_column import save_column
 
 def col_kind(col_list:list)->list:
     kinds = []
@@ -16,3 +16,29 @@ if __name__ == "__main__":
     kinds = ''.join(sorted(kinds))
 
     save_column(kinds, "/home/ryoma/nock100/2_Unix/kinds.txt")
+
+"""
+cut -f 1 popular-names.txt | sort | uniq > Unix_kinds.txt
+Abigail
+Aiden
+Alexander
+Alexis
+Alice
+Amanda
+Amelia
+Amy
+Andrew
+Angela
+Anna
+Annie
+Anthony
+Ashley
+Austin
+.
+.
+.
+Virginia
+Walter
+William
+"""
+    
