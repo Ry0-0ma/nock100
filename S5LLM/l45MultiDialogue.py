@@ -1,0 +1,91 @@
+# from l40Zero_Shot import FetchAnswer_gemini
+import os
+from dotenv import load_dotenv
+from google import genai
+from google.genai import types
+
+def MultiTurnDialogue(
+        prompts: list, 
+        model: str = "gemini-2.0-flash", 
+        MaxOutputTokens: int = 1024,
+        Temperature: float = 0.1,
+        TopP: float = 0.95,
+        TopK: int = 32
+    ):
+    # .envファイルからAPIキーを読み込む
+    load_dotenv()
+    API_KEY = os.getenv('GOOGLE_GEMINI_API_KEY')
+    client = genai.Client(api_key=API_KEY)
+    chat = client.chats.create(model="gemini-2.0-flash")
+
+    for dialogue in prompts:
+        # chat.send_message_stream() を使うと出力が順次表示される
+        response = chat.send_message(
+            dialogue,
+            config=types.GenerateContentConfig(
+                max_output_tokens=MaxOutputTokens,
+                temperature=Temperature,
+                top_p=TopP,
+                top_k=TopK
+            )
+        )
+        print(f"Prompt:\n {dialogue}")
+        print(f"Response:\n {response.text}")
+
+
+if __name__ == "__main__":
+    prompts = [
+    """つばめちゃんは渋谷駅から東急東横線に乗り、自由が丘駅で乗り換えました。
+    東急大井町線の大井町方面の電車に乗り換えたとき、各駅停車に乗車すべきところ、間違えて急行に乗車してしまったことに気付きました。
+    自由が丘の次の急行停車駅で降車し、反対方向の電車で一駅戻った駅がつばめちゃんの目的地でした。
+    目的地の駅の名前を答えてください。""",
+    """さらに、つばめちゃんが自由が丘駅で乗り換えたとき、先ほどとは反対方向の急行電車に間違って乗車してしまった場合を考えます。
+    目的地の駅に向かうため、自由が丘の次の急行停車駅で降車した後、反対方向の各駅停車に乗車した場合、何駅先の駅で降りれば良いでしょうか？"""
+    ]
+    MultiTurnDialogue(prompts)
+
+
+    """
+    Prompt:
+ つばめちゃんは渋谷駅から東急東横線に乗り、自由が丘駅で乗り換えました。
+    東急大井町線の大井町方面の電車に乗り換えたとき、各駅停車に乗車すべきところ、間違えて急行に乗車してしまったことに気付きました。
+    自由が丘の次の急行停車駅で降車し、反対方向の電車で一駅戻った駅がつばめちゃんの目的地でした。
+    目的地の駅の名前を答えてください。
+Response:
+ つばめちゃんの目的地は九品仏駅です。
+
+理由は以下の通りです。
+
+1.  **自由が丘駅で東急大井町線に乗り換え、急行に乗車:** 自由が丘駅は東急大井町線の急行停車駅です。
+2.  **自由が丘の次の急行停車駅で降車:** 自由が丘駅の次の大井町方面の急行停車駅は、二子玉川駅です。
+3.  **反対方向の電車で一駅戻る:** 二子玉川駅から大井町線で一駅戻ると、九品仏駅に着きます。
+Prompt:
+ さらに、つばめちゃんが自由が丘駅で乗り換えたとき、先ほどとは反対方向の急行電車に間違って乗車してしまった場合を考えます。
+    目的地の駅に向かうため、自由が丘の次の急行停車駅で降車した後、反対方向の各駅停車に乗車した場合、何駅先の駅で降りれば良いでしょうか？
+Response:
+ つばめちゃんが自由が丘駅で大井町線、反対方向（溝の口方面）の急行に間違って乗車した場合の目的地までの手順と駅数は以下のようになります。
+
+1. **自由が丘駅で溝の口方面の急行に乗車:**
+2. **自由が丘の次の急行停車駅で降車:** 自由が丘駅の次の溝の口方面の急行停車駅は、溝の口駅です。
+3. **反対方向（大井町方面）の各駅停車に乗車:** 溝の口駅から大井町方面の各駅停車に乗ります。
+4. **目的地は九品仏駅:** 最初の質問より、目的地は九品仏駅です。
+5. **溝の口駅から九品仏駅までの駅数:** 溝の口駅から九品仏駅までは、以下の駅を通過します。
+    * 高津
+    * 溝の口
+    * 二子新地
+    * 高津
+    * 梶が谷
+    * 桜新町
+    * 用賀
+    * 二子玉川
+    * 上野毛
+    * 等々力
+    * 尾山台
+    * 九品仏
+
+したがって、溝の口駅から九品仏駅までは**12駅**です。
+    """
+
+    # https://www.tokyu.co.jp/railway/station/map.html
+    # 自由が丘 -> 大井町方面の急行1区間:二子玉川
+    # -> 上野毛 -> 等々力 ->九品仏 -> 自由が丘 -> 緑が丘: 5駅
