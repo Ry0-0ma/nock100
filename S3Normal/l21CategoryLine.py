@@ -1,3 +1,4 @@
+# 無関係の下位問題を抽出する
 from l20ReadJson import Read_Json, save_dict
 import numpy as np
 
@@ -18,18 +19,25 @@ def ExtractLines(Jornal_line:list, words:list)->list:
     extracted = []
     for jornal in Jornal_line:
         for line in jornal:
-            if Findword(line,words):
+            if Findword(line,words): #行内にwords が含まれているか
                 extracted.append(line)
 
     return extracted            
 
 if __name__ == "__main__":
-    dict_list = Read_Json("/home/ryoma/nock100/3_Normal/jawiki-country.json.gz")
+    dict_list = Read_Json("jawiki-country.json.gz")
 
     Jornal_line = DivideLine(dict_list)
     words = ['Category:', 'カテゴリ:']
     extracted = ExtractLines(Jornal_line, words)
 
-    save_dict('\n'.join(extracted), "/home/ryoma/nock100/3_Normal/CategoryLine.txt")
+    save_dict('\n'.join(extracted), "CategoryLine.txt")
 
 
+"""
+[[Category:エジプト|*]]
+[[Category:共和国]]
+[[Category:軍事政権]]
+[[Category:フランコフォニー加盟国]]'}
+{{Main|オーストリア料理|Category:オーストリアの食文化}}
+"""

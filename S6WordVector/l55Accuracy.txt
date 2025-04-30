@@ -1,0 +1,13 @@
+capital-common-countries の正解率: 80.83004%
+capital-world の正解率: 76.17153%
+currency の正解率: 8.66051%
+city-in-state の正解率: 65.01824%
+family の正解率: 76.08696%
+gram1-adjective-to-adverb の正解率: 23.89113%
+gram2-opposite の正解率: 25.98522%
+gram3-comparative の正解率: 84.38438%
+gram4-superlative の正解率: 44.65241%
+gram5-present-participle の正解率: 77.55682%
+gram6-nationality-adjective の正解率: 89.55597%
+gram7-past-tense の正解率: 63.65385%
+gram8-plural の正解率: 88.58859%

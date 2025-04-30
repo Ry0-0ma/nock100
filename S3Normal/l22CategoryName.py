@@ -17,14 +17,26 @@ def SaveList(List:list, path:str):
 
 
 if __name__ == "__main__":
-    with open("/home/ryoma/nock100/3_Normal/CategoryLine.txt") as file:
+    with open("CategoryLine.txt") as file:
         categorylines = file.readlines()
     
     categories = ExtractCategoryName(categorylines)
 
-    SaveList(categories, "/home/ryoma/nock100/3_Normal/CategoryNames.txt")
+    SaveList(categories, "CategoryNames.txt")
 
-        
+"""
+['エジプト']
+['共和国']
+['軍事政権']
+['フランコフォニー加盟国']
+['オーストリアの食文化']
+['オーストリアの作曲家']
+['オーストリア']
+['内陸国']
+['欧州連合加盟国']
+['共和国']
+['連邦制国家']
+"""
 
 
 '''

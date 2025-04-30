@@ -36,6 +36,9 @@ if __name__ == "__main__":
     Info_dictlist = ReturnInfo_dictlist()
     RemoveAllMarkup(Info_dictlist) #FIXME: 仮リンク残っている, コメントアウトも1つ残っている
     print(Info_dictlist)
+"""
+[{'略名': 'エジプト', '漢字書き': '埃及', '日本語国名': 'エジプト・アラブ共和国', '公式国名': 'جمهورية مصر العربية', '国旗画像': 'Flag of Egypt.svg', '国章画像': '', '国章リンク': '（国章）', '標語': 'なし', '位置画像': 'Egypt (orthographic projection).svg',
+"""
 
 
 # # [[ファイル: が一つ残った-> 後ろのカッコが}}になっていた

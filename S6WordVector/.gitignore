@@ -1,3 +1,6 @@
 GoogleNews_WordVec.kv
 GoogleNews_WordVec.kv.vectors.npy
 GoogleNews-vectors-negative300.bin.gz
+wordsim353/*
+questions-words.txt
+wordsim353.zip

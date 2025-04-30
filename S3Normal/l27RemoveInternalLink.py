@@ -1,3 +1,4 @@
+# ライブラリに親しむ
 from l25ExtractTemplate import ReturnInfo_dictlist
 from l26RemoveEmphasis import RemoveEmphasis
 import re
@@ -19,10 +20,16 @@ def RemoveInternalLink(Info_dictlist:list):
 if __name__ == "__main__":
     # 記事ごとに基礎情報の辞書オブジェクトが格納されたリスト
     Info_dictlist = ReturnInfo_dictlist()
-    # print(Info_dictlist[3])
+    print(Info_dictlist[3])
     
     RemoveEmphasis(Info_dictlist)
     RemoveInternalLink(Info_dictlist)
-    # print(Info_dictlist[3])
-    print(Info_dictlist)
+    print(Info_dictlist[3])
+    # print(Info_dictlist)
 
+"""
+'国章画像': '[[ファイル:Coat of arms (emblem) of Iraq 2008.svg|80px|イラクの国章]]', '国章リンク': '([[イラクの国章|国章]])', '標語': '{{Lang|ar|الله أكبر}} (allahu akbar)<br/>(アラビア語: [[神]]は偉大なり)'
+
+'国章画像': '[[ファイル:Coat of arms (emblem) of Iraq 2008.svg|80px|イラクの国章]]', '国章リンク': '(国章)', '標語': '{{Lang|ar|الله أكبر}} (allahu akbar)<br/>(アラビア語: 神は偉大なり)'
+
+"""

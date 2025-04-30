@@ -1,3 +1,5 @@
+# 1度に一つのこと
+
 import json
 import gzip
 
@@ -28,7 +30,18 @@ def save_dict(dict_list:list, path:str):
 
 if __name__ == "__main__":
     #list - dict - key(title, text)
-    dict_list = Read_Json("/home/ryoma/nock100/S3Normal/jawiki-country.json.gz")
+    dict_list = Read_Json("jawiki-country.json.gz")
 
     Journals = ExtractJournal_byWord(dict_list, 'イギリス')
-    save_dict(Journals, "/home/ryoma/nock100/S3Normal/JournalEngland.txt")
+    save_dict(Journals, "JournalEngland.txt")
+
+"""
+[{'title': 'エジプト', 'text': '{{otheruses|主に現代のエジプト・アラブ共和国|古代|古代エジプト}}\n
+{{基礎情報 国\n
+|略名 =エジプト\n
+|漢字書き=埃及\n
+|日本語国名 =エジプト・アラブ共和国\n
+|公式国名 ={{lang|ar|\'\'\'جمهورية مصر العربية\'\'\'}}\n
+|国旗画像 =Flag of Egypt.svg\n|国章画像 =[[ファイル:Coat_of_arms_of_Egypt.svg|100px|エジプトの国章]]\n|国章リンク =（[[エジプトの国章|国章]]）\n
+|標語 =なし\n|位置画像 =
+"""

@@ -4,15 +4,11 @@ def Save_Word2Vec(path:str, Name):
     # GoogleNews-vectors-negative300.bin.gz を直接読み込む (gzip 使わず)
     model = KeyedVectors.load_word2vec_format('GoogleNews-vectors-negative300.bin.gz', binary=True)
     model.save(Name)
-    
-def Extract_WordVec(word:str):
-    model = KeyedVectors.load('GoogleNews_WordVec.kv')
-    wordvec = model[word]
-    return wordvec
 
 if __name__== '__main__':
     Save_Word2Vec('GoogleNews-vectors-negative300.bin.gz', 'GoogleNews_WordVec.kv')
-    print(Extract_WordVec('United_States'))
+    model = KeyedVectors.load('GoogleNews_WordVec.kv')
+    print(model['United_States'])
 
 # https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/view?usp=sharing&resourcekey=0-wjGZdNAUop6WykTtMip30g
 # gdown "https://drive.google.com/uc?id=0B7XkCwpI5KDYNlNUTTlSS21pQmM"

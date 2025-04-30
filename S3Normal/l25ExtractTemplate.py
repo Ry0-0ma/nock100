@@ -1,6 +1,6 @@
 # p51. コードを段落に分ける(Make_dictlist)
 
-from l20ReadJson import Read_Json, Extractjournal_byWord
+from l20ReadJson import Read_Json, ExtractJournal_byWord
 import re
 
 #基礎情報テンプレートを抜き出す
@@ -34,8 +34,8 @@ def Make_dictlist(Templates:list)->list:
 
 def ReturnInfo_dictlist(): #後の問題でもInfo_dictlistを使うための関数
     #list - dict - key(title, text)
-    dict_list = Read_Json("/home/ryoma/nock100/3_Normal/jawiki-country.json.gz")
-    Journals = Extractjournal_byWord(dict_list, 'イギリス')
+    dict_list = Read_Json("jawiki-country.json.gz")
+    Journals = ExtractJournal_byWord(dict_list, 'イギリス')
     Templates = ExtractTemplate(Journals)
     Info_dictlist = Make_dictlist(Templates)
     return Info_dictlist
@@ -43,8 +43,8 @@ def ReturnInfo_dictlist(): #後の問題でもInfo_dictlistを使うための関
 
 if __name__ == "__main__":
     #list - dict - key(title, text)
-    dict_list = Read_Json("/home/ryoma/nock100/3_Normal/jawiki-country.json.gz")
-    Journals = Extractjournal_byWord(dict_list, 'イギリス') #イギリスに関する記事のみ抜き出した
+    dict_list = Read_Json("jawiki-country.json.gz")
+    Journals = ExtractJournal_byWord(dict_list, 'イギリス') #イギリスに関する記事のみ抜き出した
 
     Templates = ExtractTemplate(Journals)
     Info_dictlist = Make_dictlist(Templates)
@@ -55,4 +55,6 @@ if __name__ == "__main__":
 
 
 
-# r'\{\{基礎情報.*?\|(.*?)\n\}\}', journal['text']
+"""
+[{'略名': 'エジプト', '漢字書き': '埃及', '日本語国名': 'エジプト・アラブ共和国', '公式国名': "{{lang|ar|'''جمهورية مصر العربية'''}}", '国旗画像': 'Flag of Egypt.svg', '国章画像': '[[ファイル:Coat_of_arms_of_Egypt.svg|100px|エジプトの国章]]', '国章リンク': '（[[エジプトの国章|国章]]）
+"""

@@ -1,4 +1,5 @@
 #11章 1度に1つのタスク
+# ライブラリに親しむ
 
 from l20ReadJson import Read_Json
 import re
@@ -37,7 +38,7 @@ def MergeTitleAndLevel(Titles:list, Levels:list)->str:
 
 if __name__ == "__main__":
     #list - dict - key(title, text)
-    dict_list = Read_Json("/home/ryoma/nock100/3_Normal/jawiki-country.json.gz")
+    dict_list = Read_Json("jawiki-country.json.gz")
     
     # 連続した= と =に囲まれた セクション名を抽出
     pattern = r'(={2,})\s*(.*?)\s*\1'
@@ -48,16 +49,27 @@ if __name__ == "__main__":
     Levels = CountLevel(Matched)
     Sections = MergeTitleAndLevel(Titles, Levels)
 
-    with open("/home/ryoma/nock100/3_Normal/Sections.txt", mode='w') as file:
+    with open("Sections.txt", mode='w') as file:
         file.write(Sections)
 
+"""
+国号 (1)
+歴史 (1)
+古代エジプト (2)
+アケメネス朝ペルシア (2)
+ヘレニズム文化 (2)
+ローマ帝国 (2)
+イスラム王朝 (2)
+オスマン帝国 (2)
+"""
 
-'''
+
+"""
 {m,n} m回からn回繰り返す-> ={2,}で=2個以上連続したもの
-\s 空白文字
+\\s 空白文字
 * 0回以上の繰り返し: 無くてもよい
 . 任意の1文字
 (.*?) :マッチングする最短の文字列をキャプチャ
-\1 :1番目にキャプチャした文字列と同じ文字列 -> =の繰り返し
+\\1 :1番目にキャプチャした文字列と同じ文字列 -> =の繰り返し
 
-'''
+"""

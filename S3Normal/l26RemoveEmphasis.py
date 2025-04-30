@@ -18,4 +18,7 @@ if __name__ == "__main__":
     print(Info_dictlist[3]['公式国名'])
 
 
-
+"""
+{{Lang|ar|'''الجمهورية العراقية'''}} <small>(アラビア語)</small><br/>{{Lang|ku|'''كۆماری عێراق'''}} <small>(クルド語)</small>
+{{Lang|ar|الجمهورية العراقية}} <small>(アラビア語)</small><br/>{{Lang|ku|كۆماری عێراق}} <small>(クルド語)</small>
+"""
