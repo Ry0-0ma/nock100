@@ -1,3 +1,4 @@
+# 汎用コードをつくる
 import re
 
 def ExtractCategoryName(categorylines:list)->list:

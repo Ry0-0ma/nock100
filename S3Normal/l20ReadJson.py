@@ -1,4 +1,5 @@
 # 1度に一つのこと
+# ライブラリに親しむ
 
 import json
 import gzip
