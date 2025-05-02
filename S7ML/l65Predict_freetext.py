@@ -1,9 +1,12 @@
 # ライブラリに親しむ
 import joblib
-from l61Feature import FeatureVector
-from sklearn.feature_extraction import DictVectorizer
 import pandas as pd
+
 from collections import Counter
+from sklearn.feature_extraction import DictVectorizer
+from l61Feature import FeatureVector
+
+
 
 def Text2Vector(text:str, vectorizer):
     words = text.split(' ')
