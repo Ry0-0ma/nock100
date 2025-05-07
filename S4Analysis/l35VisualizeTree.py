@@ -1,3 +1,5 @@
+# ライブラリに親しむ
+
 from l33DependencyParsing import CaboChaParse, Modifier_Head
 import CaboCha
 import pydot

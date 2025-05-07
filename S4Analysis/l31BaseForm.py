@@ -23,8 +23,8 @@ if __name__ == "__main__":
     verbs = ExtractVerbs(text)
     baseform = Extract_feature(text, 6) #7番目の特徴が原型
 
-    for verb, baseform in zip(verbs, baseform):
-        print("動詞: ", verb, "\t原型: ", baseform)
+    for verb, base in zip(verbs, baseform):
+        print("動詞: ", verb, "\t原型: ", base)
 
     """
     動詞:  し       原型:  する

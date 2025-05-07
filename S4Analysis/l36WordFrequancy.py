@@ -11,6 +11,9 @@ from l30Verb import SplitParsedText
 sys.path.append(os.path.abspath("../S3Normal"))
 from l20ReadJson import Read_Json, ExtractJournal_byWord
 
+
+
+
 # マッチした部分を上書き
 def OverwriteMatched(Journals:list, pattern, source:str):
     for i, journal in enumerate(Journals):
@@ -90,34 +93,34 @@ def PrintFrequantWords(wordfrequancy:dict, TopNum:int):
             break
 
 if __name__ == "__main__":
-    dict_list = Read_Json("/home/ryoma/nock100/S3Normal/jawiki-country.json.gz")
-    Journals = ExtractJournal_byWord(dict_list, 'イギリス')
+    Journals = Read_Json("/home/ryoma/nock100/S3Normal/jawiki-country.json.gz")
+    # Journals = ExtractJournal_byWord(dict_list, 'イギリス')
     RemoveMarkup(Journals)
     wordfrequancy = SortFrequancy(Journals)
     PrintFrequantWords(wordfrequancy, 20)
 
 
 """
-し       頻度: 0.019927377497848127
-年       頻度: 0.01764664952040285
-.        頻度: 0.011974466155027652
-いる     頻度: 0.0117438162635233
-れ       頻度: 0.01124128298035739
--        頻度: 0.010745192431591047
-さ       頻度: 0.010255544617224263
-する     頻度: 0.007807305545390352
-=        頻度: 0.007370488153099986
-月       頻度: 0.007232613636949339
-人       頻度: 0.007208131246231
-:        頻度: 0.005320410067159063
-日       頻度: 0.0052546941762835215
-1        頻度: 0.00518897828540798
-国       頻度: 0.0049003437843075605
-/        頻度: 0.004307612219547771
-的       頻度: 0.004302458032028121
-2        頻度: 0.004079539421803244
-こと     頻度: 0.003968724390130762
-語       頻度: 0.0039262023430936465
+し       頻度: 0.020043890472145935
+年       頻度: 0.017621938337766933
+.        頻度: 0.012048322633773244
+いる     頻度: 0.01166999366218133
+れ       頻度: 0.011302443293768673
+-        頻度: 0.011023277471425922
+さ       頻度: 0.010269853109195873
+する     頻度: 0.007769217171608297
+=        頻度: 0.007580591615971303
+月       頻度: 0.007412445406374897
+人       頻度: 0.007286335749177593
+日       頻度: 0.005543435615091769
+:        頻度: 0.005279359837199978
+国       頻度: 0.005217921799078214
+1        頻度: 0.005154328040320599
+/        頻度: 0.004367490008234853
+的       頻度: 0.004175630871644082
+2        頻度: 0.004018263265226933
+語       頻度: 0.003993472477914642
+なっ     頻度: 0.003913710814388142
 """
 
 

@@ -1,5 +1,6 @@
 # p.61コードの欠陥にコメント
 # 10章無関係の下位問題を抽出する
+# 汎用コードをつくる
 
 import sys
 import os
@@ -42,9 +43,13 @@ def PrintTF_IDF(TF_IDF:dict, TF:dict, IDF:dict, TopNum:int):
             break
         print(f"{noun}, \t, TF: {TF[noun]}, IDF: {IDF[noun]}, TF-IDF: {TF_IDF[noun]}")
 
+def Print_Title(dict_list:list):
+    for Journal in dict_list:
+        print(Journal['title'])
 
 if __name__ == "__main__":
     dict_list = Read_Json("/home/ryoma/nock100/S3Normal/jawiki-country.json.gz")
+    # Print_Title(dict_list)
     Journals = ExtractJournal_byWord(dict_list, '日本') #FIXME: 日本の記事のみを抽出できてなそう
     RemoveMarkup(Journals) #FIXME: マークアップ削除も足りてなさそう
     TF = SortNounFrequancy(Journals)
@@ -73,4 +78,15 @@ if __name__ == "__main__":
     div,    , TF: 0.0003986051425273911, IDF: 2.493640329756755, TF-IDF: 0.000993977859054742
     low,    , TF: 0.00042335513503726174, IDF: 2.3470368555648795, TF-IDF: 0.0009936301049250998
     スペイン,       , TF: 0.0010889996704343103, IDF: 0.9054798157699394, TF-IDF: 0.000986067220958384
+    """
+
+
+    """
+    def ExtractJournal_byWord(dict_list:list, word:str)->list:
+    Journals = []
+    for Journal in dict_list:
+        if Journal['title'] == word:
+            Journals.append(Journal)
+    
+    return Journals
     """

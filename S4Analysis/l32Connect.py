@@ -28,3 +28,5 @@ if __name__ == "__main__":
     けれども邪悪に対しては、人一倍に敏感であった。
     """
     print(Extract_ConnectedNoun(text))
+
+    # [['暴虐', '王'], ['村', '牧人']]

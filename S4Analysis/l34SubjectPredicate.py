@@ -4,8 +4,8 @@
 
 from l33DependencyParsing import CaboChaParse
 
+# 動詞が含まれている句を取り出す
 def VerbPhrase(ParsedLines, line_idx)->(str,int,bool):
-    line = ParsedLines[line_idx]
     increment = 0
     phrase = ''
     IncludeVerb = False
