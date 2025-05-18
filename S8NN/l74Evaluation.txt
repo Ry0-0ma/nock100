@@ -1,0 +1,16 @@
+Epoch 1/10, Loss: 0.48501721024513245
+Epoch 2/10, Loss: 0.4875020980834961
+Epoch 3/10, Loss: 0.49027010798454285
+Epoch 4/10, Loss: 0.49178189039230347
+Epoch 5/10, Loss: 0.4923033118247986
+Epoch 6/10, Loss: 0.49214136600494385
+Epoch 7/10, Loss: 0.4915410280227661
+Epoch 8/10, Loss: 0.49067363142967224
+Epoch 9/10, Loss: 0.4896654784679413
+Epoch 10/10, Loss: 0.4886024594306946
+Traceback (most recent call last):
+  File "l74Evaluation.py", line 50, in <module>
+    accuracy = Evaluate_LogReg(Dev_dict, model, embMX)
+  File "l74Evaluation.py", line 30, in Evaluate_LogReg
+    pred_labels[i] = torch.sigmoid(output).item().round() # 0.5以上なら1, それ以外は0
+AttributeError: 'float' object has no attribute 'round'
